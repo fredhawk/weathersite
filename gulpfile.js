@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var sass = require('gulp-sass');
+var scss = require('gulp-sass');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var jade = require('gulp-jade');
@@ -13,7 +13,7 @@ var input  = {
       //'jade': 'source/jade/**/*.jade',
       'jade': 'source/*.jade',
       'inhtml': 'source/*.html',
-      'sass': 'source/sass/**/*.sass',
+      'scss': 'source/scss/**/*.scss',
       'javascript': 'source/js/**/*.js',
       'vendorjs': 'build/assets/js/vendor/**/*.js'
     },
@@ -30,10 +30,13 @@ gulp.task('clean', function(){
 });
 
 // sass stuff
-gulp.task('sass', function() {
-  return gulp.src(input.sass)
+gulp.task('scss', function() {
+  return gulp.src(input.scss)
     .pipe(sourcemaps.init())
-    .pipe(sass({ style: 'expanded' }))
+    .pipe(scss({ 
+      outputStyle: 'expanded',
+      sourceComments: false 
+      }))
     .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(output.stylesheets))
@@ -63,15 +66,15 @@ gulp.task('build-js', function(){
 });
 gulp.task('js-watch', ['build-js'], browserSync.reload);
 
-// watch Sass files for changes, run the Sass preprocessor with the 'sass' task and reload
-gulp.task('serve', ['clean', 'jade', 'sass', 'build-js'], function() {
+// watch Scss files for changes, run the Scss preprocessor with the 'scss' task and reload
+gulp.task('serve', ['clean', 'jade', 'scss', 'build-js'], function() {
   browserSync.init({
     server: {
       baseDir: 'build'
     }
   });
   gulp.watch(input.jade, ['jade']);
-  gulp.watch(input.sass, ['sass']);
+  gulp.watch(input.scss, ['scss']);
   gulp.watch(input.javascript, ['js-watch']).on('change', reload);
   
 });

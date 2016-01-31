@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Starter Kit for webapp",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "normalize.css": "^3.0.3"
+  },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
     "browser-sync": "^2.11.1",
@@ -13,7 +15,9 @@
     "gulp-postcss": "^6.0.1",
     "gulp-sass": "^2.1.1",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-util": "^3.0.7"
+    "gulp-util": "^3.0.7",
+    "normalize-scss": "^4.0.3",
+    "support-for": "^1.0.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
