@@ -13,17 +13,28 @@
 }
 .flex-cont {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  font-size: 3em;
+  font-size: 2em;
+  background: $weatherbg;
+  border-radius: 25px;
+  border: 2px solid $degreeColor;
 }
 .celfahr {
-  background: $buttonbg;
+  background: $degreeColor;
   border-radius: 15px;
+  color: white;
   
 }
 .degrees {
-  color: hsla(231, 48%, 48%, 1);
-  width: 200px;
-  padding-right: 20px;
+  color: $degreeColor;
+  font-size: 1.2em;
+}
+.weather_icon {
+  width: 50px;
+  height: 50px;
+}
+.weather_icon > img {
+  width: 50px;
+  height: 50px;
 }

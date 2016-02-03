@@ -34,20 +34,25 @@ $(document).ready(function() {
       temperature = parseFloat((temperature).toFixed(2));
       
       console.log(temperature);
-      $('.degrees').append(temperature + " &deg;");
-      $('.celfahr').text(unitLabel);
+      $('.degrees').append(temperature + " &deg;" + unitLabel);
+      if (unitLabel === "C") {
+        $('.celfahr').text("Change to Fahrenheit");
+      } else {
+        $('.celfahr').text("Change to Celcius");
+      }
+      
       $('.celfahr').on('click', function() {
         if (unitLabel == "C") {
           var fahrenheit = (temperature * 9 / 5 + 32).toFixed(2); 
           unitLabel = "F"; 
-          $(".degrees").text(fahrenheit).append(" &deg;");
-          $('.celfahr').text(unitLabel);
+          $(".degrees").text(fahrenheit).append(" &deg;" + unitLabel);
+          $('.celfahr').text("Change to Celcius");
           temperature = fahrenheit;
         } else {
           var celsius = ((temperature - 32) * 5 / 9).toFixed(2);
           unitLabel = "C"
-          $(".degrees").text(celsius).append(" &deg;");
-          $('.celfahr').text(unitLabel);
+          $(".degrees").text(celsius).append(" &deg;" + unitLabel);
+          $('.celfahr').text("Change to Fahrenheit");
           temperature = celsius;
         }
       });
