@@ -50,4 +50,4 @@ node_modules
 build
 
 # Typings
-typings
+typings/
