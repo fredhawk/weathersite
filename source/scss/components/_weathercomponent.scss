@@ -1,7 +1,7 @@
 .container {
   width: 100vw;
   height: 100vh;
-  background-image: url(../img/beach.jpg);
+  background-image: url(../img/spring.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -13,5 +13,17 @@
 }
 .flex-cont {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+}
+.celfahr {
+  background: $buttonbg;
+  border-radius: 15px;
+  
+}
+.degrees {
+  color: hsla(231, 48%, 48%, 1);
+  width: 200px;
+  padding-right: 20px;
 }
