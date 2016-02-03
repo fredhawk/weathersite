@@ -1,0 +1,17 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../img/beach.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+.weather_component {
+  display: flex;
+  flex-direction: column;
+}
+.flex-cont {
+  display: flex;
+  justify-content: space-between;
+}

@@ -7,6 +7,8 @@ var jade = require('gulp-jade');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
 var del = require('del');
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
 var reload = browserSync.reload;
 
 var input  = {
@@ -15,19 +17,33 @@ var input  = {
       'inhtml': 'source/*.html',
       'scss': 'source/scss/**/*.scss',
       'javascript': 'source/js/**/*.js',
+      'images': 'source/img/*',
       'vendorjs': 'build/assets/js/vendor/**/*.js'
     },
 
     output = {
       'outhtml': 'build',
       'stylesheets': 'build/css',
-      'javascript': 'build/js'
+      'javascript': 'build/js',
+      'image': 'build/img'
     };
     
 // Delete build folder to clean it
 gulp.task('clean', function(){
   return del(output.outhtml + '/**/*');
 });
+
+// Images
+gulp.task('images', function() {
+  return gulp.src(input.images)
+        .pipe(imagemin({
+          progressive: true,
+          svgoPlugins: [{removeViewBox: false}],
+          use: [pngquant()]
+        }))
+        .pipe(gulp.dest(output.image));
+});
+
 
 // sass stuff
 gulp.task('scss', function() {
@@ -67,7 +83,7 @@ gulp.task('build-js', function(){
 gulp.task('js-watch', ['build-js'], browserSync.reload);
 
 // watch Scss files for changes, run the Scss preprocessor with the 'scss' task and reload
-gulp.task('serve', ['clean', 'jade', 'scss', 'build-js'], function() {
+gulp.task('serve', ['clean', 'images', 'jade', 'scss', 'build-js'], function() {
   browserSync.init({
     server: {
       baseDir: 'build'
