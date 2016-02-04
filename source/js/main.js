@@ -23,6 +23,8 @@ $(document).ready(function() {
     $.get(weatherApiUrl, function(weather) {
       var temperature = weather.main.temp;
       var unitLabel;
+      
+
       console.log(weather);
       
       //Change label based on if the country uses metric or imperial system
@@ -56,6 +58,13 @@ $(document).ready(function() {
           temperature = celsius;
         }
       });
+      
+      var openWeatherLink = 'http://openweathermap.org/img/w/';
+      var weatherIcon = weather.weather[0].icon;
+      var weatherCondition = weather.weather[0].description;
+      
+      $('#weather_icon').attr('src', openWeatherLink + weatherIcon + ".png");
+      $('.weather').text(weatherCondition);
       
     }, "jsonp");
   
