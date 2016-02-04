@@ -48,6 +48,7 @@ node_modules
 
 # Buildfolder
 build
+typings
 
 # Typings
 typings/
