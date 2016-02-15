@@ -1,7 +1,7 @@
 .container {
   width: 100vw;
   height: 100vh;
-  background-image: url(../img/spring.jpg);
+  background-image: url(http://41.media.tumblr.com/4130e10646cb5fddb139e1db64afbb3a/tumblr_o21dn3KCWm1v60ddvo1_1280.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -16,6 +16,15 @@
   background: $darkBlue;
   border-radius: 10px 10px 20px 20px;
   padding: 15px;
+  width: 106%;
+  @media (max-width: 850px) {
+    font-size: 1.2em;
+    width: 80%;
+  }
+  @media (max-width: 400px) {
+    font-size: 1em;
+    width: 100%;
+  
 }
 .flex-cont {
   display: flex;
@@ -25,9 +34,14 @@
   background: $weatherWhite;
   border-radius: 25px;
   border: 2px solid $harmonyBlue;
-  width: 70%;
-  @media (max-width: 320px) {
+  width: 110%;
+  line-height: 0;
+  @media (max-width: 850px) {
     font-size: 1.2em;
+    width: 80%;
+  }
+  @media (max-width: 400px) {
+    font-size: 1em;
     width: 100%;
   }
 }
@@ -35,10 +49,10 @@
   background: $harmonyBlue;
   border-radius: 15px;
   color: white;
-  width: 20%;
+  width: 25%;
   margin-top: 25px;
   font-size: 1.1em;
-  @media (max-width: 320px) {
+  @media (max-width: 550px) {
     font-size: 1em;
     width: 50%;
   }
@@ -49,6 +63,9 @@
 .degrees {
   color: $harmonyBlue;
   font-size: 1.2em;
+  @media (max-width: 400px) {
+    font-size: 1em;;
+  }
 }
 #weather_icon {
   width: 60px;
