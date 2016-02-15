@@ -30,7 +30,7 @@ var input  = {
     
 // Delete build folder to clean it
 gulp.task('clean', function(){
-  return del(output.outhtml + '/**/*');
+  return del.sync(output.outhtml + '/**/*');
 });
 
 // Images
